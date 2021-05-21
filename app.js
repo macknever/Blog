@@ -1,6 +1,6 @@
 //jshint esversion:6
 
-require("dotenv").config();
+//require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -100,9 +100,8 @@ let s3 = new aws.S3({
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-        "817089136106-q87m0tqg095ngg2dnscs7h6tnc25toe6.apps.googleusercontent.com",
-      clientSecret: "HkIjSriEEC0XDAjsd-EeLXDB",
+      clientID: s3.CLIENT_ID,
+      clientSecret: s3.CLIENT_SECRET,
       callbackURL: "https://lawrenceblog.herokuapp.com/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
