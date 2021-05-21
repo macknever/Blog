@@ -1,0 +1,39 @@
+
+<%- include("partials/header"); -%>
+    
+<!-- body of home page -->
+  
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome to the BLOG</h1>
+      <p>But it is the same with man as with the tree. The more he seeks to rise into the height and light, the more vigorously do his roots struggle earthward, downward, into the dark, the deep - into evil.</p>
+      <p><a class="btn btn-primary btn-lg" href="/compose" role="button">New Post &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+
+    <div class="row">
+      <%  posts.forEach(function(post){ %>
+        <div class="col-md-4">
+          <h2><%=post.postName%></h2>
+          <p><%=post.postContent.substring(0,100) + " ..."%></p>
+          <a class="btn btn-secondary" href="/posts/<%=post._id%>" role="button">Read More &raquo;</a>
+        </div>
+      <% }) %>
+    </div>
+   
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+
+
+<%- include("partials/footer"); -%>
