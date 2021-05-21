@@ -17,6 +17,11 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 const app = express();
 
+let s3 = new aws.S3({
+  accessKeyId: process.env.CLIENT_ID,
+  secretAccessKey: process.env.CLIENT_SECRET,
+});
+
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
@@ -92,16 +97,11 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
-let s3 = new aws.S3({
-  CLIENT_ID: process.env.CLIENT_ID,
-  CLIENT_SECRET: process.env.CLIENT_SECRET,
-});
-
 passport.use(
   new GoogleStrategy(
     {
-      clientID: s3.CLIENT_ID,
-      clientSecret: s3.CLIENT_SECRET,
+      clientID: s3.accessKeyId,
+      clientSecret: s3.secretAccessKey,
       callbackURL: "https://lawrenceblog.herokuapp.com/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
