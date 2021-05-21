@@ -152,12 +152,12 @@ app.get("/register", function (req, res) {
   res.render("register");
 });
 
-app.get("/secrets", function (req, res) {
-  User.find({ secret: { $ne: null } }, function (err, foundUsers) {
-    console.log(foundUsers);
-    res.render("secrets", { userWithSecret: foundUsers });
-  });
-});
+// app.get("/secrets", function (req, res) {
+//   User.find({ secret: { $ne: null } }, function (err, foundUsers) {
+//     console.log(foundUsers);
+//     res.render("secrets", { userWithSecret: foundUsers });
+//   });
+// });
 
 app.get("/logout", function (req, res) {
   req.logout();
