@@ -10,7 +10,7 @@ const _ = require("lodash");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const findOrCreate = require("mongoose-findOrCreate");
+const findOrCreate = require("mongoose-findorcreate");
 
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
