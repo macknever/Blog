@@ -100,8 +100,9 @@ let s3 = new aws.S3({
 passport.use(
   new GoogleStrategy(
     {
-      clientID: s3.CLIENT_ID,
-      clientSecret: s3.CLIENT_SECRET,
+      clientID:
+        "817089136106-q87m0tqg095ngg2dnscs7h6tnc25toe6.apps.googleusercontent.com",
+      clientSecret: "HkIjSriEEC0XDAjsd-EeLXDB",
       callbackURL: "http://localhost:3000/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
