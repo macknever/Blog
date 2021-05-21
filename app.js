@@ -103,7 +103,7 @@ passport.use(
       clientID:
         "817089136106-q87m0tqg095ngg2dnscs7h6tnc25toe6.apps.googleusercontent.com",
       clientSecret: "HkIjSriEEC0XDAjsd-EeLXDB",
-      callbackURL: "http://localhost:3000/auth/google/secrets",
+      callbackURL: "http://lawrenceblog.herokuapp.com/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, done) {
