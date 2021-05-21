@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const _ = require("lodash");
+const aws = require("aws-sdk");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -91,11 +92,16 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
+let s3 = new aws.S3({
+  CLIENT_ID: process.env.CLIENT_ID,
+  CLIENT_SECRET: process.env.CLIENT_SECRET,
+});
+
 passport.use(
   new GoogleStrategy(
     {
-      clientID: CLIENT_ID,
-      clientSecret: CLIENT_SECRET,
+      clientID: s3.CLIENT_ID,
+      clientSecret: s3.CLIENT_SECRET,
       callbackURL: "http://localhost:3000/auth/google/secrets",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
