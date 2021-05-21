@@ -33,7 +33,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 mongoose.set("useCreateIndex", true);
-mongoose.connect("mongodb://localhost:27017/userDB", {
+// ! = %21
+const mongoDB_Atlas_uri =
+  "mongodb+srv://admin-lawrence:Encyc200718%21@cluster0.ssm3m.mongodb.net/";
+const mongoDB_local_uri = "mongodb://localhost:27017/";
+const dataBaseName = "userDB";
+
+mongoose.connect(mongoDB_Atlas_uri + dataBaseName, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
